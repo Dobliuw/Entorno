@@ -58,6 +58,7 @@ function configAll(){
 		cd picom && git submodule update --init --recursive && meson setup --buildtype=release . build && ninja -C build && sudo ninja -C build install &>/dev/null
 		echo -e "\n\n\t${purpleColour}[!]${endColour} Configurando la consola de root...${grayColour}${endColour}\n\n"
 		chmod +x /home/$1/.config/polybar/config && chmod +x /home/$1/.config/polybar/launch.sh
+		chmod +w -R /home/$1/.config/bin
 		sudo usermod --shell /usr/bin/zsh root && sudo chown root:root /usr/local/share/zsh/site-functions/_bspc && sudo ln -s -f /home/$1/.zshrc /root/.zshrc 
 		sudo rm -rf $workspace
 		echo -e "[!] /home/$1/nashe"
